@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        #randomList {
+            list-style: none;
+        }
+
+        #img {
+            width: 50%;
+            height: auto;
+        }
+
+        #container {
+            margin-left: 20%;
+        }
+
+        #btn {
+            padding: 1%;
+            background-color: rgb(248, 248, 8);
+            color: blue;
+            font-size: 17px;
+            border-color: blue;
+        }
+    </style>
+    <title>Dog photo gallery</title>
+</head>
+
+<body>
+    <div id="container">
+        <button id="btn">Click for a random dog photo</button>
+        <div id="containerUl">
+            <ul id="unordered"></ul>
+        </div>
+    </div>
+
+    <script>
+        let button = document.getElementById("btn");
+
+        button.addEventListener("click", randomDogPhotoGallery);
+
+        function randomDogPhotoGallery() {
+            fetch("https://dog.ceo/api/breeds/image/random")
+                .then((response) => response.json())
+                .then((data) => {
+                    let ul = document.getElementById("unordered");
+                    ul.innerHTML = `<li id="randomList"> <img id="img" src="${data.message}" alt="random dog photos"/> </li>`;
+                })
+                .catch((error) => console.log(error));
+        }
+    </script>
+</body>
+
+</html>
