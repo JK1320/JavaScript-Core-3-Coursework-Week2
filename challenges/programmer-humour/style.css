@@ -1,0 +1,17 @@
+#container {
+    background-color: rgb(184, 241, 241);
+    text-align: center;
+}
+
+#heading {
+    color: brown;
+    text-align: center;
+}
+
+#imgDiv {
+    text-align: center;
+}
+
+#title {
+    color:rgb(247, 84, 8);  
+}
